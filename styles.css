@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #bed7ff;
+    color: #222;
+}
+
+main {
+    width: 100%;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+    text-align: center;
+    gap: 20px;
+}
+
+header {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    color: #fff;
+    padding: 20px 28px;
+    text-align: center;
+    position: relative;
+}
+
+header div {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+a {
+    color: #565454;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #f0f0f0;
+}
+
+a:active {
+    color: #333;
+}
+
+.button-home:hover {
+    background: #acdaff;
+
+}
+
+.button-home:active {
+    background: #6eb6f5;
+}
+
+.members-btn:hover {
+    background: #333;
+}
+
+.error-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+}
+
+.digit {
+    font-size: clamp(120px, 22vw, 290px);
+    font-weight: 700;
+    line-height: 1;
+    color: rgb(15, 79, 156);
+}
+
+video {
+    width: clamp(130px, 24vw, 320px);
+    height: clamp(130px, 24vw, 320px);
+    object-fit: cover;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    opacity: 0.95;
+}
+
+.error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.error-content h2 {
+    font-size: clamp(24px, 3.2vw, 32px);
+}
+
+.error-content p {
+    font-size: clamp(15px, 2vw, 18px);
+    color: #666;
+    max-width: 620px;
+    padding: 0 8px;
+}
+
+.error-content button {
+    font-size: 16px;
+    padding: 10px 14px;
+    border: none;
+    outline: none;
+    border-radius: 32px;
+    cursor: pointer;
+    background: white;
+    color: #222;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.members-btn {
+    font-size: 15px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+
+}
+
+.error-visual .digit {
+    opacity: 0;
+    animation: fadeDigit 1.5s ease-out forwards;
+}
+
+.error-visual .digit:first-child {
+    animation-delay: 0ms;
+}
+
+.error-visual .digit:last-child {
+    animation-delay: 350ms;
+}
+
+.error-content h2,
+.error-content p,
+.error-content button {
+    opacity: 0;
+    transform: translateY(26px);
+    animation: revealUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.error-content h2 {
+    animation-delay: 900ms;
+}
+
+.error-content p {
+    animation-delay: 1300ms;
+}
+
+.error-content button {
+    animation-delay: 1700ms;
+}
+
+@keyframes fadeDigit {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(26px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 14px 16px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    header div {
+        gap: 10px;
+    }
+
+    .members-btn {
+        font-size: 13px;
+        padding: 8px 12px;
+        position: static;
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 16px 10px;
+        gap: 14px;
+    }
+
+    .error-content {
+        gap: 10px;
+    }
+
+    .error-content button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .arrow-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+}
